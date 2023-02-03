@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'org.rabbitmq'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    //Se agrega la dependencia del cliente de rabbitMQ
+    implementation group: 'com.rabbitmq', name: 'amqp-client', version: '5.16.0'
+
+    //Se agrega dependencia slf4j simple para poder ver los logs del cliente
+    //La version debe corresponder con la versión de slf4j-api que se encuenta en "External libraries" del proyecto.
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.36'
+
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
